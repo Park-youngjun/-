@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/354885cafc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/login.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="title">
+                <i class="fab fa-pied-piper-square"></i>
+                <a href="/">처음으로</a>
+            </div>
+            <div class="menu_bar">
+                <ul>
+                    
+                    <li><a href="/login">login</a></li>
+                    <li><a href="/register">register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        <div class="container_form">
+            <form method="post">
+                <ul>
+                    <li>
+                        <label>아이디(회원번호)</label>
+                        <input type="text" name='user_id' required>
+                    </li>
+                    <li>
+                        <label>비밀번호</label>
+                        <input type="password" name="pw" required>
+                    </li>
+                    <li>
+                        <label>이름</label>
+                        <input type="text" name="name" required>
+                    </li>
+
+                    <li>
+                        <label>닉네임</label>
+                        <input type="text", name = "nickname" required>
+                    </li>
+
+                    <li>
+                        <label>전화번호</label>
+                        <input type="number", name = "tel" required>
+                    </li>
+
+                    <li>
+                        <label>주소</label>
+                        <input type="text", name = "place" required>
+                    </li>
+
+                    <li>
+                        <label>이메일</label>
+                        <input type="text", name = "email" required>
+                    </li>
+
+                    <select name="sex" >
+                        <option value="0">남자</option>
+                        <option value="1">여자</option>
+                    </select>
+
+                    <li>
+                        <label>생일</label>
+                        <input type="text", name = "birth" required>
+                    </li>
+                    
+                </ul>
+                <input type="submit" value="회원가입">
+            </form>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/354885cafc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/index.css">
+</head>
+
+
+<body>
+    <nav>
+        <div class="container">
+            <div class="title">
+                <i class="fab fa-pied-piper-square"></i>
+                <a href="/">처음으로</a>
+            </div>
+            <div class="menu_bar">
+                <ul>
+                    
+                <% if(is_logined == false){ %>
+                    <li><a href="/login">login</a></li>
+                    <li><a href="/register">register</a></li>
+                   
+                <% }else{ %>
+                    <li><%= name %> 님 환영합니다!</li>
+                    <li><a href="/logout">logout</a></li>
+                    <form action="write", method="post">
+                        <li><a href="write">글작성</a></li>
+                    </form>
+                    
+                <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <body>
+        <h2>게시글 리스트</h2>
+        <table id = 'book' border='1'>
+            <colgroup>
+                <col width='60'><col width='200'><col width='100'>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>소설 번호</th>
+                    <th>소설 게시물 제목</th>
+                    <th>작성일</th>
+                    <th>작성자</th>
+                    <th>댓글 수</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(i = 0; i < list.length; i++) { %>
+                <tr>
+                    <td><%= list[i].bulletin_no%></td>
+                    <form action="gobull" method="post">
+                        <input type="hidden" name = "bulletin_no" value="<%= list[i].bulletin_no%>">
+                        <td><button type="submit" value="<% i %>"><%= list[i].bulletin_title%></button></td>
+                    </form>
+                    <td><%= (list[i].bulletin_date+"").substring(4,15)%></td>
+                    <td><%= list[i].user_id%></td>
+                    <td><%= list[i].comment_count%></td>
+                   
+                <% } %>
+            </tbody>
+        </table boader='1'>
+    </body>
+</body>
+</html>
+
+
+

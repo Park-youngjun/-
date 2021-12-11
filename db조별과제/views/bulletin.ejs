@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>게시글 작성</title>
+    </head>
+    <body>
+        <A href="./">메인화면으로 이동</A>
+        
+        <table  style = "margin: auto;", border="1">
+            <thead>
+                <tr><th>소설 게시글</th></tr>
+
+            </thead>
+            
+            <tbody>            
+                
+                    <% for (j = 0 ; j < no.length; j++) {%>
+                   
+                            <tr>
+                                <td style="text-align: right;" >게시글 번호 : <%= no[j].bulletin_no%> 작성자 : <%= no[j].user_id%></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;"><%= no[j].bulletin_title%></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; height: 100px;"><%= no[j].bulletin_content%></td>
+                            </tr>
+                        
+                        
+                            <form action="comment_write" method="post">
+                                <tr>
+                                    <input type="hidden" name="bulletin_no" value="<%= no[j].bulletin_no%>">
+                                    <td><input type="text" name="bulletin_comment_content" style="width: 1000px; height: 100px;"></td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td style="text-align: right;"><button type="submit">댓글작성</button></td>
+                                </tr>
+                            </form>
+                
+                    <%}%>
+                       
+                <% for(i = 0; i < list.length; i++) { %>  
+                    <form action="comment" method="post">
+                    
+                        <tr>
+                            <td style="text-align: right;">댓글 번호 : <%= list[i].bulletin_comment_no%> 작성자 : <%= list[i].user_id%></td>
+                        </tr>
+                        <tr>
+                            <td><%= list[i].bulletin_comment_content%></td>
+                        </tr>
+                    </form>
+                   
+                <%}%>    
+            
+        </tbody>
+            
+        </table> 
+    </body>
+</html>
